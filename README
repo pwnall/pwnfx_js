@@ -1,0 +1,62 @@
+PwnFX is an attempt to restore Rails 2's ease of sprinkling ajax, using the
+UJS (Unobtrusive JavaScript) approach in Rails 3.
+
+
+REQUIREMENTS
+
+The PwnFX JS has been tested and works against the following browsers:
+* Chromium / Google Chrome 11.0+
+* Firefox 4.0+
+* (TODO) Mobile Safari in iOS 3+
+* (TODO) Internet Explorer 9+
+
+Patches for extending compatibility are always welcome.
+
+
+USAGE
+
+The PwnFX functionality is divided into orthogonal pieces, called effects, which
+are activated by HTML5 data- attributes. The attributes for invoking an effect,
+such as "move" are prefixed with data-pwnfx-effectname (e.g., data-pwnfx-move).
+
+When using DOM inspectors such as firebug, it might be useful to know that after
+parsing, the main attribute for an effect (such as data-pwnfx-move) receives
+a -done suffix (e.g., data-pwnfx-move-done), so that the effect is not invoked
+again when the DOM is re-parsed.
+
+
+
+
+BUILDING
+
+PwnFX requires RubyGems, Jasmine, and Juicer with the YUI Compressor and
+JSLint extensions. Once dependencies are installed, the following command will
+build and test both the development and production versions of the library. 
+
+    rake
+
+The dependencies can be downloaded from the following locations:
+* RubyGems -- http://rubygems.org/ 
+* Jasmine -- gem install jasmine
+* Juicer -- gem install juicer
+* Juicer extensions -- juicer install jslint; juicer install yui_compressor
+
+
+TESTING
+
+(TODO)
+
+Testing is fully automated using Jasmine. All patches should add tests for the
+changed functionality in the spec/ directory.
+
+For maximum iterating speed, keep a Jasmine testing server running.
+
+1. Start the server by running
+
+    rake jasmine
+
+2. Make some changes to the source code, then rebuild
+
+    rake build
+    
+3. Load or refresh http://localhost:8888 in your browser.
